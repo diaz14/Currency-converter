@@ -1,24 +1,26 @@
-menu = input("""
+def converter(currency, peso_value):
+    currency = float(input("How many " + currency + " do you have?: "))
+    peso = currency / peso_value
+    peso = round(peso, 2)
+    peso = str(peso)
+    print("You've $" + peso + " mexican pesos!")
+
+menu = """
 Welcome to Mexico! Please, select a desired convertion 💰
 
-USD currency ($) == 1
-EUR currency (€) == 2
+1 - USD currency ($)
+2 - EUR currency (€)
+3 - GBP currency (£)
 
-""")
-menu = int(menu)
-if menu == 1:
-    dollar = int(input("How many US dollars do you have?: "))
-    mx_peso = 0.050
-    us_value = dollar / mx_peso
-    us_value = round(us_value, 2)
-    us_value = str(us_value)
-    print("Then, you've $" + us_value + " mexican pesos!")
-elif menu == 2:
-    euro = int(input("How many euro do you have?: "))
-    mx_peso = 0.051
-    eu_value = euro / mx_peso
-    eu_value = round(eu_value, 2)
-    eu_value = str(eu_value)
-    print("Then, you've $" + eu_value + " mexican pesos!")
+▶ """
+
+option = float(input(menu))
+
+if option == 1:
+    converter("USD dollars", 0.050)
+elif option == 2:
+    converter("EURO", 0.051)
+elif option == 3:
+    converter("british pounds", 0.044)
 else:
-    print("Invalid input. Please, select an option.")
+    print("Invalid input. Please, select options 1, 2 or 3.")
